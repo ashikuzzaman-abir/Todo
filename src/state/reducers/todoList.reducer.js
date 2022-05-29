@@ -18,10 +18,14 @@ export const listSlice = createSlice({
             state.doneList.push(action.payload);
         },
         removeList: (state, action) => {
-            state.mainList.splice(action.payload, 1);
+            state.mainList= state.mainList.filter((item) => {
+				return item !== action.payload;
+			});
         },
         removeDoneList: (state, action) => {
-            state.doneList.splice(action.payload, 1);
+            state.doneList= state.doneList.filter((item) => {
+                return item !== action.payload;
+            });
         }
     }
 
