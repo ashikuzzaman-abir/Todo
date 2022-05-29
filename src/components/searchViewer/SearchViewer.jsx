@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { MdDoneOutline, MdOutlineClear } from "react-icons/md";
-import { addDoneList, removeList, removeSearchList, setSearchOutput } from "../../state/reducers/todoList.reducer";
+import { addDoneList, removeList, removeSearchList, setSearchOutput, resetCurrentSearch} from "../../state/reducers/todoList.reducer";
 
 
 export default function SearchViewer() {
@@ -14,6 +14,7 @@ export default function SearchViewer() {
         <button
         onClick={(e) => {
             dispatch(setSearchOutput([]));
+            dispatch(resetCurrentSearch());
         }}
         className=" absolute right-0 top-[-10px] bg-dark-800 rounded-full">
             <MdOutlineClear className='text-[2.15rem] rounded-full bg-dark-700' />
