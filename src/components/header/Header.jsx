@@ -22,6 +22,9 @@ export default function Header() {
 		if( currentSearch !== ""){
 			const filteredSearchResult = mainList.filter(item => item.includes(currentSearch));
 			dispatch(setSearchOutput(filteredSearchResult));
+			if (filteredSearchResult.length === 0) {
+				dispatch(setCurrentSearch("No result found!"));
+			}
 		}
 	}
 
