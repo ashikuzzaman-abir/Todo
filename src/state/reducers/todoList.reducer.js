@@ -28,15 +28,18 @@ export const listSlice = createSlice({
 			});
 		},
 		setCurrentSearch: (state, action) => {
-			if (action.payload !== "") {
-				state.currentSearch = action.payload;
-			}
+			state.currentSearch = action.payload;
 		},
 		resetCurrentSearch: (state) => {
 			state.currentSearch = "";
 		},
 		setSearchOutput: (state, action) => {
 			state.searchOutput = action.payload;
+		},
+		removeSearchList: (state, action) => {
+			state.searchOutput = state.searchOutput.filter((item) => {
+				return item !== action.payload;
+			});
 		},
 	},
 });
@@ -49,6 +52,7 @@ export const {
 	setCurrentSearch,
 	resetCurrentSearch,
 	setSearchOutput,
+    removeSearchList,
 } = listSlice.actions;
 
 export default listSlice.reducer;
